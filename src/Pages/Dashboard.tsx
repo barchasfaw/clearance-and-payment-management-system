@@ -2,9 +2,10 @@
 
 import { useState } from "react"
 import AdminRegistration from "./AdminRegistration"
+import UserManagement from "./UserManagement"
+import SecurityGate from "./SecurityGate"
 import type { StaffCredential } from "../data/staff-credentials"
 import "./Dashboard.css"
-import UserManagement from "./UserManagement"
 
 interface DashboardProps {
   user: StaffCredential
@@ -12,7 +13,7 @@ interface DashboardProps {
 }
 
 const Dashboard = ({ user, onLogout }: DashboardProps) => {
-  const [activeTab, setActiveTab] = useState<string>("register")
+  const [activeTab, setActiveTab] = useState<string>("dashboard")
 
   return (
     <div className="dashboard-container">
@@ -62,6 +63,14 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
               </li>
               <li>
                 <button
+                  className={`nav-button ${activeTab === "security" ? "active" : ""}`}
+                  onClick={() => setActiveTab("security")}
+                >
+                  Security Gate
+                </button>
+              </li>
+              <li>
+                <button
                   className={`nav-button ${activeTab === "reports" ? "active" : ""}`}
                   onClick={() => setActiveTab("reports")}
                 >
@@ -91,6 +100,7 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
             </div>
           )}
           {activeTab === "manage" && <UserManagement />}
+          {activeTab === "security" && <SecurityGate />}
           {activeTab === "reports" && (
             <div className="placeholder-content">
               <h2>Reports</h2>
