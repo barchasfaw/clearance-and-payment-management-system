@@ -1,0 +1,828 @@
+/* CafeteriaSystem.css */
+
+.cafeteria-system-container {
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    padding: 20px;
+  }
+  
+  .cafeteria-header {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .cafeteria-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  .cafeteria-header p {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .cafeteria-content {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .left-panel {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .right-panel {
+    flex: 2;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* Meal Time Status Styles */
+  .meal-time-status {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .current-time h3,
+  .meal-status h3,
+  .all-meal-times h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  .time-display {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4361ee;
+  }
+  
+  .meal-badge {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .meal-active {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .meal-inactive {
+    background-color: #f3f4f6;
+    color: #6b7280;
+  }
+  
+  .meal-time-range {
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 8px;
+  }
+  
+  .time-until {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .meal-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .meal-schedule-item {
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .meal-schedule-item.current-meal {
+    background-color: #d1fae5;
+    border-left: 4px solid #065f46;
+  }
+  
+  .meal-name {
+    font-weight: 600;
+    color: #4b5563;
+  }
+  
+  .meal-time {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  /* ID Card Scanner Styles */
+  .id-scanner-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .scanner-header {
+    margin-bottom: 20px;
+  }
+  
+  .scanner-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 4px 0;
+  }
+  
+  .scanner-header p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .scanner-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .scan-button {
+    padding: 16px;
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .scan-button:hover {
+    background-color: #3a56d4;
+  }
+  
+  .scan-button:disabled {
+    background-color: #4361ee;
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .scanning {
+    position: relative;
+  }
+  
+  .scanning-indicator {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .manual-entry {
+    background-color: #f9fafb;
+    border-radius: 6px;
+    padding: 16px;
+  }
+  
+  .manual-entry h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4b5563;
+    margin: 0 0 12px 0;
+  }
+  
+  .manual-form {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .manual-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .manual-input:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  }
+  
+  .submit-button {
+    padding: 10px 16px;
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-button:hover {
+    background-color: #3a56d4;
+  }
+  
+  .submit-button:disabled {
+    background-color: #4361ee;
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .scan-error {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    color: #dc2626;
+    font-size: 14px;
+  }
+  
+  .scanner-help {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: #f3f4f6;
+    border-radius: 6px;
+  }
+  
+  .scanner-help h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    margin: 0 0 8px 0;
+  }
+  
+  .scanner-help ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .scanner-help li {
+    margin-bottom: 4px;
+  }
+  
+  /* Scan History Styles */
+  .scan-history {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .scan-history h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 16px 0;
+  }
+  
+  .no-history {
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .history-item {
+    padding: 10px 12px;
+    border-left: 3px solid #d1d5db;
+    margin-bottom: 8px;
+    background-color: #f9fafb;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .history-item.action-scan {
+    border-left-color: #4361ee;
+  }
+  
+  .history-item.action-meal {
+    border-left-color: #10b981;
+  }
+  
+  .history-time {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .history-action {
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .history-id {
+    font-size: 13px;
+    color: #6b7280;
+  }
+  
+  /* Student Information Display Styles */
+  .student-info-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .student-header {
+    margin-bottom: 20px;
+  }
+  
+  .student-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .student-details {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .student-photo {
+    width: 150px;
+    height: 200px;
+    background-color: #f3f4f6;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .photo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .student-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .info-row {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .info-label {
+    font-weight: 500;
+    color: #4b5563;
+    min-width: 120px;
+  }
+  
+  .info-value {
+    color: #111827;
+  }
+  
+  .role-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .role-student {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .meal-status-section {
+    margin-top: 16px;
+  }
+  
+  .meal-status-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+  }
+  
+  .meal-status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  .meal-status-item {
+    padding: 12px;
+    background-color: #f9fafb;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .meal-status-name {
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .meal-status-indicator {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .meal-taken {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .meal-not-taken {
+    background-color: #f3f4f6;
+    color: #6b7280;
+  }
+  
+  .meal-time-taken {
+    font-size: 12px;
+    color: #6b7280;
+    text-align: center;
+  }
+  
+  .meal-actions {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .current-meal-action h3,
+  .no-meal-time h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+  }
+  
+  .record-meal-button {
+    padding: 12px 20px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+  }
+  
+  .record-meal-button:hover {
+    background-color: #059669;
+  }
+  
+  .meal-already-taken {
+    padding: 12px;
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    color: #dc2626;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .no-meal-time p {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  /* No Student Scanned Styles */
+  .no-student-scanned {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 40px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+  
+  .no-student-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .no-student-svg {
+    width: 40px;
+    height: 40px;
+    color: #9ca3af;
+  }
+  
+  .no-student-scanned h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  .no-student-scanned p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    max-width: 400px;
+  }
+  
+  /* Meal History Styles */
+  .meal-history-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .meal-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .meal-history-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .filter-controls label {
+    font-size: 14px;
+    color: #4b5563;
+  }
+  
+  .filter-select {
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+  }
+  
+  .filter-select:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  }
+  
+  .no-meals-message {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9fafb;
+    border-radius: 6px;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .meal-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .meal-history-day {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .meal-history-date {
+    padding: 12px 16px;
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .meal-history-records {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .meal-history-record {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .meal-type-indicator {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .meal-breakfast {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .meal-lunch {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .meal-dinner {
+    background-color: #e0e7ff;
+    color: #3730a3;
+  }
+  
+  .meal-missing {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .meal-time {
+    font-size: 14px;
+    color: #4b5563;
+  }
+  
+  .meal-status {
+    font-size: 14px;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .meal-history-record.meal-missing {
+    opacity: 0.7;
+  }
+  
+  /* Notification Styles */
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    width: 350px;
+    max-width: 90%;
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .notification-content {
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .notification-success .notification-content {
+    background-color: #d1fae5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+  }
+  
+  .notification-warning .notification-content {
+    background-color: #fef3c7;
+    border: 1px solid #fde68a;
+    color: #92400e;
+  }
+  
+  .notification-error .notification-content {
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+  }
+  
+  .notification-message {
+    flex: 1;
+    padding-right: 12px;
+  }
+  
+  .notification-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+  }
+  
+  .notification-close:hover {
+    opacity: 1;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .cafeteria-content {
+      flex-direction: column;
+    }
+  
+    .left-panel,
+    .right-panel {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .student-details {
+      flex-direction: column;
+    }
+  
+    .student-photo {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  
+    .meal-status-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .info-row {
+      flex-direction: column;
+      gap: 4px;
+    }
+  
+    .info-label {
+      min-width: auto;
+    }
+  }
+  

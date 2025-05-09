@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import AdminRegistration from "./AdminRegistration"
 import UserManagement from "./UserManagement"
 import SecurityGate from "./SecurityGate"
+import CafeteriaSystem from "./CafeteriaSystem"
 import type { StaffCredential } from "../data/staff-credentials"
 import "./Dashboard.css"
 
@@ -14,6 +15,19 @@ interface DashboardProps {
 
 const Dashboard = ({ user, onLogout }: DashboardProps) => {
   const [activeTab, setActiveTab] = useState<string>("dashboard")
+
+  // Add this effect after the useState declaration
+  useEffect(() => {
+    // Reset to dashboard if current tab is not allowed for this role
+    if (
+      (activeTab === "register" && user.role !== "admin") ||
+      (activeTab === "manage" && user.role !== "admin") ||
+      (activeTab === "security" && user.role !== "security" && user.role !== "admin") ||
+      (activeTab === "cafeteria" && user.role !== "cafe" && user.role !== "admin")
+    ) {
+      setActiveTab("dashboard")
+    }
+  }, [activeTab, user.role])
 
   return (
     <div className="dashboard-container">
@@ -43,32 +57,54 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
                   Dashboard
                 </button>
               </li>
+
+              {/* Admin-only pages */}
               {user.role === "admin" && (
+                <>
+                  <li>
+                    <button
+                      className={`nav-button ${activeTab === "register" ? "active" : ""}`}
+                      onClick={() => setActiveTab("register")}
+                    >
+                      Register User
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={`nav-button ${activeTab === "manage" ? "active" : ""}`}
+                      onClick={() => setActiveTab("manage")}
+                    >
+                      Manage Users
+                    </button>
+                  </li>
+                </>
+              )}
+
+              {/* Security-only pages */}
+              {(user.role === "security" || user.role === "admin") && (
                 <li>
                   <button
-                    className={`nav-button ${activeTab === "register" ? "active" : ""}`}
-                    onClick={() => setActiveTab("register")}
+                    className={`nav-button ${activeTab === "security" ? "active" : ""}`}
+                    onClick={() => setActiveTab("security")}
                   >
-                    Register User
+                    Security Gate
                   </button>
                 </li>
               )}
-              <li>
-                <button
-                  className={`nav-button ${activeTab === "manage" ? "active" : ""}`}
-                  onClick={() => setActiveTab("manage")}
-                >
-                  Manage Users
-                </button>
-              </li>
-              <li>
-                <button
-                  className={`nav-button ${activeTab === "security" ? "active" : ""}`}
-                  onClick={() => setActiveTab("security")}
-                >
-                  Security Gate
-                </button>
-              </li>
+
+              {/* Cafeteria-only pages */}
+              {(user.role === "cafe" || user.role === "admin") && (
+                <li>
+                  <button
+                    className={`nav-button ${activeTab === "cafeteria" ? "active" : ""}`}
+                    onClick={() => setActiveTab("cafeteria")}
+                  >
+                    Cafeteria
+                  </button>
+                </li>
+              )}
+
+              {/* Common pages for all roles */}
               <li>
                 <button
                   className={`nav-button ${activeTab === "reports" ? "active" : ""}`}
@@ -99,8 +135,9 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
               <p>Welcome to the Dormitory Clearance System dashboard.</p>
             </div>
           )}
-          {activeTab === "manage" && <UserManagement />}
-          {activeTab === "security" && <SecurityGate />}
+          {activeTab === "manage" && user.role === "admin" && <UserManagement />}
+          {activeTab === "security" && (user.role === "security" || user.role === "admin") && <SecurityGate />}
+          {activeTab === "cafeteria" && (user.role === "cafe" || user.role === "admin") && <CafeteriaSystem />}
           {activeTab === "reports" && (
             <div className="placeholder-content">
               <h2>Reports</h2>
