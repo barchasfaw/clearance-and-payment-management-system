@@ -1,0 +1,112 @@
+"use client"
+
+import { useState } from "react"
+import AdminRegistration from "./AdminRegistration"
+import type { StaffCredential } from "../data/staff-credentials"
+import "./Dashboard.css"
+import UserManagement from "./UserManagement"
+
+interface DashboardProps {
+  user: StaffCredential
+  onLogout: () => void
+}
+
+const Dashboard = ({ user, onLogout }: DashboardProps) => {
+  const [activeTab, setActiveTab] = useState<string>("register")
+
+  return (
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <div className="dashboard-logo">
+          <h1>Dormitory Clearance System</h1>
+        </div>
+        <div className="dashboard-user">
+          <span className="user-name">
+            {user.name} ({user.role})
+          </span>
+          <button className="logout-button" onClick={onLogout}>
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <div className="dashboard-content">
+        <aside className="dashboard-sidebar">
+          <nav className="sidebar-nav">
+            <ul>
+              <li>
+                <button
+                  className={`nav-button ${activeTab === "dashboard" ? "active" : ""}`}
+                  onClick={() => setActiveTab("dashboard")}
+                >
+                  Dashboard
+                </button>
+              </li>
+              {user.role === "admin" && (
+                <li>
+                  <button
+                    className={`nav-button ${activeTab === "register" ? "active" : ""}`}
+                    onClick={() => setActiveTab("register")}
+                  >
+                    Register User
+                  </button>
+                </li>
+              )}
+              <li>
+                <button
+                  className={`nav-button ${activeTab === "manage" ? "active" : ""}`}
+                  onClick={() => setActiveTab("manage")}
+                >
+                  Manage Users
+                </button>
+              </li>
+              <li>
+                <button
+                  className={`nav-button ${activeTab === "reports" ? "active" : ""}`}
+                  onClick={() => setActiveTab("reports")}
+                >
+                  Reports
+                </button>
+              </li>
+              <li>
+                <button
+                  className={`nav-button ${activeTab === "settings" ? "active" : ""}`}
+                  onClick={() => setActiveTab("settings")}
+                >
+                  Settings
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <main className="dashboard-main">
+          {activeTab === "register" && user.role === "admin" && <AdminRegistration />}
+          {activeTab === "dashboard" && (
+            <div className="placeholder-content">
+              <h2>Welcome, {user.name}</h2>
+              <p>Role: {user.role}</p>
+              <p>Email: {user.email}</p>
+              <p>Welcome to the Dormitory Clearance System dashboard.</p>
+            </div>
+          )}
+          {activeTab === "manage" && <UserManagement />}
+          {activeTab === "reports" && (
+            <div className="placeholder-content">
+              <h2>Reports</h2>
+              <p>View and generate system reports.</p>
+            </div>
+          )}
+          {activeTab === "settings" && (
+            <div className="placeholder-content">
+              <h2>Settings</h2>
+              <p>Configure system settings and preferences.</p>
+            </div>
+          )}
+        </main>
+      </div>
+    </div>
+  )
+}
+
+export default Dashboard

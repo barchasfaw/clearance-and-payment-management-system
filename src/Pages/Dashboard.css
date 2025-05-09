@@ -1,0 +1,143 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+  }
+  
+  .dashboard-header {
+    background-color: #4361ee;
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-logo h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .dashboard-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .user-name {
+    font-weight: 500;
+  }
+  
+  .logout-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .dashboard-sidebar {
+    width: 240px;
+    background-color: white;
+    border-right: 1px solid #e5e7eb;
+    padding: 24px 0;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .nav-button:hover {
+    background-color: #f9fafb;
+    color: #4361ee;
+  }
+  
+  .nav-button.active {
+    background-color: #eff6ff;
+    color: #4361ee;
+    font-weight: 500;
+    border-left: 3px solid #4361ee;
+  }
+  
+  .dashboard-main {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  
+  .placeholder-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .placeholder-content h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .dashboard-content {
+      flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 12px 0;
+    }
+    
+    .sidebar-nav ul {
+      display: flex;
+      overflow-x: auto;
+    }
+    
+    .sidebar-nav li {
+      flex-shrink: 0;
+    }
+    
+    .nav-button {
+      padding: 8px 16px;
+    }
+    
+    .nav-button.active {
+      border-left: none;
+      border-bottom: 3px solid #4361ee;
+    }
+  }

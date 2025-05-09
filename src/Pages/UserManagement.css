@@ -1,0 +1,379 @@
+/* UserManagement.css */
+
+.user-management-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-management-header {
+    margin-bottom: 24px;
+  }
+  
+  .user-management-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  .user-management-header p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  
+  .user-management-filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .search-container {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  }
+  
+  .filter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .filter-container label {
+    font-size: 14px;
+    color: #4b5563;
+    white-space: nowrap;
+  }
+  
+  .role-filter {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+  }
+  
+  .role-filter:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+  }
+  
+  .no-users-message {
+    padding: 40px;
+    text-align: center;
+    background-color: #f9fafb;
+    border-radius: 6px;
+    color: #6b7280;
+  }
+  
+  .users-table-container {
+    overflow-x: auto;
+  }
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .users-table th,
+  .users-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .users-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #4b5563;
+  }
+  
+  .users-table tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  .role-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .role-student {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .role-security {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .role-cafe {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .role-library {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .role-dormitory {
+    background-color: #e0e7ff;
+    color: #3730a3;
+  }
+  
+  .role-discipline {
+    background-color: #f5d0fe;
+    color: #86198f;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .view-button,
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .view-button {
+    color: #4361ee;
+  }
+  
+  .view-button:hover {
+    background-color: #eff6ff;
+  }
+  
+  .delete-button {
+    color: #ef4444;
+  }
+  
+  .delete-button:hover {
+    background-color: #fee2e2;
+  }
+  
+  .action-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-details-modal {
+    max-width: 600px;
+  }
+  
+  .modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .cancel-button,
+  .close-button {
+    padding: 8px 16px;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover,
+  .close-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .confirm-delete-button {
+    padding: 8px 16px;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .confirm-delete-button:hover {
+    background-color: #dc2626;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    padding: 0;
+    color: #6b7280;
+  }
+  
+  /* User details styles */
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .detail-row {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .detail-label {
+    font-weight: 500;
+    color: #4b5563;
+    min-width: 120px;
+  }
+  
+  .detail-value {
+    color: #111827;
+    flex: 1;
+  }
+  
+  .detail-section {
+    margin-top: 8px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+  }
+  
+  .detail-section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: #111827;
+  }
+  
+  .role-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .attachment-preview {
+    margin-top: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .attachment-image {
+    max-width: 100%;
+    max-height: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .document-preview {
+    padding: 16px;
+    background-color: #f9fafb;
+    text-align: center;
+  }
+  
+  .download-link {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #4361ee;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .download-link:hover {
+    background-color: #3a56d4;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .user-management-filters {
+      flex-direction: column;
+    }
+  
+    .detail-row {
+      flex-direction: column;
+      gap: 4px;
+    }
+  
+    .detail-label {
+      min-width: auto;
+    }
+  }
+  
