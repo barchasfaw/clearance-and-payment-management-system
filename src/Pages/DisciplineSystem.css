@@ -1,0 +1,576 @@
+.discipline-system {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f5f7fa;
+  }
+  
+  .discipline-header {
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 1px solid #e1e4e8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .discipline-header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1rem;
+    background-color: #f1f2f4;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .tab-button:hover {
+    background-color: #e1e4e8;
+  }
+  
+  .tab-button.active {
+    background-color: #0066cc;
+    color: white;
+  }
+  
+  .discipline-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  
+  /* Complaints List */
+  .complaints-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .filter-group label {
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .filter-group select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .complaints-list {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .description-cell {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .severity-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .severity-minor {
+    background-color: #e6f7ff;
+    color: #0066cc;
+  }
+  
+  .severity-moderate {
+    background-color: #fff7e6;
+    color: #fa8c16;
+  }
+  
+  .severity-severe {
+    background-color: #fff1f0;
+    color: #f5222d;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .status-pending {
+    background-color: #f9f0ff;
+    color: #722ed1;
+  }
+  
+  .status-under_review {
+    background-color: #e6fffb;
+    color: #13c2c2;
+  }
+  
+  .status-action_taken {
+    background-color: #f6ffed;
+    color: #52c41a;
+  }
+  
+  .status-dismissed {
+    background-color: #f5f5f5;
+    color: #8c8c8c;
+  }
+  
+  .view-button {
+    padding: 0.25rem 0.5rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+  }
+  
+  .view-button:hover {
+    background-color: #0052a3;
+  }
+  
+  /* Students List */
+  .students-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .search-bar {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .students-list {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .points-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .points-low {
+    background-color: #f6ffed;
+    color: #52c41a;
+  }
+  
+  .points-medium {
+    background-color: #fff7e6;
+    color: #fa8c16;
+  }
+  
+  .points-high {
+    background-color: #fff1f0;
+    color: #f5222d;
+  }
+  
+  /* Dashboard */
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .stat-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0066cc;
+  }
+  
+  .dashboard-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .dashboard-section {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .dashboard-section h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: #555;
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Complaint Details */
+  .complaint-details,
+  .student-details {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+  }
+  
+  .details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  
+  .details-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  .back-button {
+    padding: 0.5rem 1rem;
+    background-color: #f1f2f4;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .back-button:hover {
+    background-color: #e1e4e8;
+  }
+  
+  .details-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .complaint-info,
+  .student-info,
+  .student-info-full {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .student-info-full {
+    grid-column: span 2;
+  }
+  
+  .info-grid {
+    display: grid;
+    gap: 0.5rem;
+  }
+  
+  .info-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+  }
+  
+  .info-label {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .description-box,
+  .action-box,
+  .notes-box {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #0066cc;
+  }
+  
+  .description-box h4,
+  .action-box h4,
+  .notes-box h4 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+  
+  .action-box {
+    border-left-color: #52c41a;
+  }
+  
+  .notes-box {
+    border-left-color: #fa8c16;
+  }
+  
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .history-item {
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border-left: 4px solid #0066cc;
+  }
+  
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .history-type {
+    font-weight: 600;
+  }
+  
+  .history-warning {
+    color: #fa8c16;
+  }
+  
+  .history-suspension {
+    color: #f5222d;
+  }
+  
+  .history-dismissal {
+    color: #722ed1;
+  }
+  
+  .history-fine {
+    color: #13c2c2;
+  }
+  
+  .history-date {
+    font-size: 0.75rem;
+    color: #8c8c8c;
+  }
+  
+  .action-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e1e4e8;
+  }
+  
+  .action-section h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .action-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .warning-action {
+    background-color: #fa8c16;
+  }
+  
+  .warning-action:hover {
+    background-color: #d46b08;
+  }
+  
+  .suspension-action {
+    background-color: #f5222d;
+  }
+  
+  .suspension-action:hover {
+    background-color: #cf1322;
+  }
+  
+  .dismissal-action {
+    background-color: #722ed1;
+  }
+  
+  .dismissal-action:hover {
+    background-color: #5b21b6;
+  }
+  
+  .dismiss-action {
+    background-color: #8c8c8c;
+  }
+  
+  .dismiss-action:hover {
+    background-color: #595959;
+  }
+  
+  /* Timeline */
+  .history-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #e1e4e8;
+  }
+  
+  .timeline-item {
+    position: relative;
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    left: -1.5rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #0066cc;
+  }
+  
+  .timeline-content {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-type {
+    font-weight: 600;
+  }
+  
+  .timeline-warning {
+    color: #fa8c16;
+  }
+  
+  .timeline-suspension {
+    color: #f5222d;
+  }
+  
+  .timeline-dismissal {
+    color: #722ed1;
+  }
+  
+  .timeline-fine {
+    color: #13c2c2;
+  }
+  
+  .timeline-date {
+    font-size: 0.75rem;
+    color: #8c8c8c;
+  }
+  
+  .timeline-description {
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-duration,
+  .timeline-amount,
+  .timeline-issuer {
+    font-size: 0.85rem;
+    color: #555;
+  }
+  
+  .related-complaints-table {
+    margin-top: 1rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .details-content {
+      grid-template-columns: 1fr;
+    }
+  
+    .student-info-full {
+      grid-column: span 1;
+    }
+  
+    .dashboard-sections {
+      grid-template-columns: 1fr;
+    }
+  }
+   

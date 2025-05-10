@@ -5,6 +5,9 @@ import AdminRegistration from "./AdminRegistration"
 import UserManagement from "./UserManagement"
 import SecurityGate from "./SecurityGate"
 import CafeteriaSystem from "./CafeteriaSystem"
+import LibrarySystem from "./LibrarySystem"
+import DormitorySystem from "./DormitorySystem"
+import DisciplineSystem from "./DisciplineSystem"
 import type { StaffCredential } from "../data/staff-credentials"
 import "./Dashboard.css"
 
@@ -23,7 +26,10 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
       (activeTab === "register" && user.role !== "admin") ||
       (activeTab === "manage" && user.role !== "admin") ||
       (activeTab === "security" && user.role !== "security" && user.role !== "admin") ||
-      (activeTab === "cafeteria" && user.role !== "cafe" && user.role !== "admin")
+      (activeTab === "cafeteria" && user.role !== "cafe" && user.role !== "admin") ||
+      (activeTab === "library" && user.role !== "library" && user.role !== "admin") ||
+      (activeTab === "dormitory" && user.role !== "dormitory" && user.role !== "admin") ||
+      (activeTab === "discipline" && user.role !== "discipline" && user.role !== "admin")
     ) {
       setActiveTab("dashboard")
     }
@@ -104,6 +110,42 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
                 </li>
               )}
 
+              {/* Library-only pages */}
+              {(user.role === "library" || user.role === "admin") && (
+                <li>
+                  <button
+                    className={`nav-button ${activeTab === "library" ? "active" : ""}`}
+                    onClick={() => setActiveTab("library")}
+                  >
+                    Library
+                  </button>
+                </li>
+              )}
+
+              {/* Dormitory-only pages */}
+              {(user.role === "dormitory" || user.role === "admin") && (
+                <li>
+                  <button
+                    className={`nav-button ${activeTab === "dormitory" ? "active" : ""}`}
+                    onClick={() => setActiveTab("dormitory")}
+                  >
+                    Dormitory
+                  </button>
+                </li>
+              )}
+
+              {/* Discipline-only pages */}
+              {(user.role === "discipline" || user.role === "admin") && (
+                <li>
+                  <button
+                    className={`nav-button ${activeTab === "discipline" ? "active" : ""}`}
+                    onClick={() => setActiveTab("discipline")}
+                  >
+                    Discipline
+                  </button>
+                </li>
+              )}
+
               {/* Common pages for all roles */}
               <li>
                 <button
@@ -138,6 +180,11 @@ const Dashboard = ({ user, onLogout }: DashboardProps) => {
           {activeTab === "manage" && user.role === "admin" && <UserManagement />}
           {activeTab === "security" && (user.role === "security" || user.role === "admin") && <SecurityGate />}
           {activeTab === "cafeteria" && (user.role === "cafe" || user.role === "admin") && <CafeteriaSystem />}
+          {activeTab === "library" && (user.role === "library" || user.role === "admin") && <LibrarySystem />}
+          {activeTab === "dormitory" && (user.role === "dormitory" || user.role === "admin") && (
+            <DormitorySystem currentUserId={user.username.toLowerCase()} />
+          )}
+          {activeTab === "discipline" && (user.role === "discipline" || user.role === "admin") && <DisciplineSystem />}
           {activeTab === "reports" && (
             <div className="placeholder-content">
               <h2>Reports</h2>
